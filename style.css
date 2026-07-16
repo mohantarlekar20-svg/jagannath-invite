@@ -33,12 +33,15 @@ html, body {
   -webkit-touch-callout: none;
   outline: none;
   border: none;
+  border-radius: 12px;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 .hotspot:active,
 .hotspot:focus {
   outline: none;
-  background: transparent;
   -webkit-tap-highlight-color: transparent;
+  background: rgba(255,255,255,0.35);
+  transform: scale(0.97);
 }
 
 /* Back button shown on every sub-page */
@@ -61,21 +64,24 @@ html, body {
 }
 .back-btn:active { background: rgba(0,0,0,0.8); }
 
-/* Optional visible "Call Now" button for the contact page,
-   as a reliable fallback regardless of where the phone number
-   is printed on the image */
-.call-btn {
+/* Small pulsing phone icon shown next to each contact number,
+   so it's obvious those lines are tappable to call */
+.call-icon {
   position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 6%;
-  padding: 16px 0;
-  text-align: center;
-  background: #d2202f;
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 40px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+  width: 34px;
+  height: 34px;
+  background: #2e7d32;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  pointer-events: none;
+  animation: pulse-call 1.8s ease-in-out infinite;
+}
+@keyframes pulse-call {
+  0%   { box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 0 0 0 rgba(46,125,50,0.5); }
+  70%  { box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 0 0 10px rgba(46,125,50,0); }
+  100% { box-shadow: 0 2px 6px rgba(0,0,0,0.35), 0 0 0 0 rgba(46,125,50,0); }
 }
