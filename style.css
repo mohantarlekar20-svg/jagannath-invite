@@ -1,0 +1,71 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: #000;
+}
+
+/* This wrapper keeps the image at its true 1080x1920 aspect ratio
+   no matter what size screen it's viewed on — this is what makes
+   the % based hotspots line up correctly on every phone. */
+.page-frame {
+  position: relative;
+  width: 100%;
+  max-width: 540px;      /* keeps it looking good on tablets/desktop too */
+  aspect-ratio: 1080 / 1920;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.page-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* invisible clickable button areas placed with % so they scale */
+.hotspot {
+  position: absolute;
+  display: block;
+}
+
+/* Back button shown on every sub-page */
+.back-btn {
+  position: absolute;
+  top: 3%;
+  left: 4%;
+  width: 46px;
+  height: 46px;
+  background: rgba(0,0,0,0.55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.back-btn:active { background: rgba(0,0,0,0.8); }
+
+/* Optional visible "Call Now" button for the contact page,
+   as a reliable fallback regardless of where the phone number
+   is printed on the image */
+.call-btn {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 6%;
+  padding: 16px 0;
+  text-align: center;
+  background: #d2202f;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
