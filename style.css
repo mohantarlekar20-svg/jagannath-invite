@@ -1,4 +1,4 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body {
   width: 100%;
@@ -29,6 +29,16 @@ html, body {
 .hotspot {
   position: absolute;
   display: block;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+  border: none;
+}
+.hotspot:active,
+.hotspot:focus {
+  outline: none;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Back button shown on every sub-page */
